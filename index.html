@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        names = ['alex', 'berta', 'cihado', 'dori']
+
+        function showNames() {
+            let list = document.getElementById('list');
+
+            list.innerHTML = '';
+
+            for (let i = 0; i < names.length; i++) {
+                let element = names[i];
+                list.innerHTML += `<li>${element}</li>`
+            }
+
+        }
+
+        function filterNames() {
+            let search = document.getElementById('search').value;
+            search = search.toLowerCase();
+            console.log(search);
+
+            let list = document.getElementById('list');
+
+            list.innerHTML = '';
+
+            for (let i = 0; i < names.length; i++) {
+                let element = names[i];
+                if(element.toLowerCase().includes(search)){
+                list.innerHTML += `<li>${element}</li>`
+            }
+        }
+
+        }
+
+        function meineFunktion() {
+            let name = document.getElementById('name');
+            
+        }
+
+    </script>
+</head>
+
+<body onload="showNames()">
+    <input type="text" id="search" onkeydown="filterNames()">
+    <ul id="list">
+
+    </ul>
+
+    <form onsubmit="meineFunktion()">
+        <input type="text" placeholder="Bitte Namen eingeben" id="name"  minlength="4" required>
+        <input type="email" placeholder="Bitte Email eingeben" id="email" required>
+        <input type="number" placeholder="Bitte Zahl eingeben" id="number" min="4" required>
+        <button>Absende</button>
+    
+    </form>
+</body>
+
+</html>
